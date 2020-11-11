@@ -130,7 +130,7 @@
             tools:ignore="RtlSymmetry">
 
             <Button
-                android:id="@+id/cmdNuitePlus"
+                android:id="@+id/cmdNuiteePlus"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:gravity="center"
