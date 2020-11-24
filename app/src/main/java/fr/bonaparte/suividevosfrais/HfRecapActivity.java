@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.ImageView;
@@ -105,4 +106,12 @@ public class HfRecapActivity extends AppCompatActivity {
 		Intent intent = new Intent(HfRecapActivity.this, MainActivity.class) ;
 		startActivity(intent) ;   					
 	}
+
+	private void supprimerHf(int index){
+        Integer annee = ((DatePicker)findViewById(R.id.datHfRecap)).getYear() ;
+        Integer mois = ((DatePicker)findViewById(R.id.datHfRecap)).getMonth() + 1 ;
+        // récupération des frais HF pour cette date
+        Integer key = annee*100 + mois ;
+        Global.listFraisMois.get(key).supprFraisHf(index);
+    }
 }

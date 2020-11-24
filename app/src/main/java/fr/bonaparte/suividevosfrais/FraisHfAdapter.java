@@ -1,10 +1,15 @@
 package fr.bonaparte.suividevosfrais;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -56,13 +61,14 @@ class FraisHfAdapter extends BaseAdapter {
 		TextView txtListJour ;
 		TextView txtListMontant ;
 		TextView txtListMotif ;
+		ImageButton cmdSuppHf;
 	}
 	
 	/**
 	 * Affichage dans la liste
 	 */
 	@Override
-	public View getView(int index, View convertView, ViewGroup parent) {
+	public View getView(final int index, View convertView, ViewGroup parent) {
 		ViewHolder holder ;
 		if (convertView == null) {
 			holder = new ViewHolder() ;
@@ -70,6 +76,7 @@ class FraisHfAdapter extends BaseAdapter {
 			holder.txtListJour = convertView.findViewById(R.id.txtListJour);
 			holder.txtListMontant = convertView.findViewById(R.id.txtListMontant);
 			holder.txtListMotif = convertView.findViewById(R.id.txtListMotif);
+			holder.cmdSuppHf = convertView.findViewById(R.id.cmdSuppHf);
 			convertView.setTag(holder) ;
 		}else{
 			holder = (ViewHolder)convertView.getTag();
@@ -77,6 +84,17 @@ class FraisHfAdapter extends BaseAdapter {
 		holder.txtListJour.setText(String.format(Locale.FRANCE, "%d", lesFrais.get(index).getJour()));
 		holder.txtListMontant.setText(String.format(Locale.FRANCE, "%.2f", lesFrais.get(index).getMontant())) ;
 		holder.txtListMotif.setText(lesFrais.get(index).getMotif()) ;
+		holder.cmdSuppHf.setTag(index);
+
+		holder.cmdSuppHf.setOnClickListener(new View.OnClickListener() {
+		    @Override
+            public void onClick(View v) {
+		        // Fonctionne mais pas la bonne solution
+		        lesFrais.remove(index);
+               // HfRecapActivity.
+                notifyDataSetChanged();
+			}
+		}) ;
 		return convertView ;
 	}
 	
