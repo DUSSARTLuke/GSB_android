@@ -26,7 +26,7 @@ class FraisHfAdapter extends BaseAdapter {
      * @param context Accès au contexte de l'application
      * @param lesFrais Liste des frais hors forfait
      */
-	public FraisHfAdapter(Context context, ArrayList<FraisHf> lesFrais, int key) {
+	public FraisHfAdapter(Context context, ArrayList<FraisHf> lesFrais, Integer key) {
 		inflater = LayoutInflater.from(context) ;
 		this.lesFrais = lesFrais ;
 		this.key = key;
