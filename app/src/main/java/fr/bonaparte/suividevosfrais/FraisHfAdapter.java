@@ -19,15 +19,17 @@ class FraisHfAdapter extends BaseAdapter {
 
 	private final ArrayList<FraisHf> lesFrais ; // liste des frais du mois
 	private final LayoutInflater inflater ;
+	private final Integer key;
 
     /**
 	 * Constructeur de l'adapter pour valoriser les propriétés
      * @param context Accès au contexte de l'application
      * @param lesFrais Liste des frais hors forfait
      */
-	public FraisHfAdapter(Context context, ArrayList<FraisHf> lesFrais) {
+	public FraisHfAdapter(Context context, ArrayList<FraisHf> lesFrais, int key) {
 		inflater = LayoutInflater.from(context) ;
 		this.lesFrais = lesFrais ;
+		this.key = key;
     }
 	
 	/**
@@ -89,13 +91,16 @@ class FraisHfAdapter extends BaseAdapter {
 		holder.cmdSuppHf.setOnClickListener(new View.OnClickListener() {
 		    @Override
             public void onClick(View v) {
-		        // Fonctionne mais pas la bonne solution
-		        lesFrais.remove(index);
-               // HfRecapActivity.
+				supprimer(index);
                 notifyDataSetChanged();
 			}
 		}) ;
 		return convertView ;
 	}
-	
+
+
+	public void supprimer(int index){
+		Log.d("TAG", " " +key);
+		Global.listFraisMois.get(key).supprFraisHf(index);
+	}
 }
