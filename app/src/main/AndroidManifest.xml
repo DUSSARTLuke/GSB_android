@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/my_backup_rules">
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -27,6 +27,7 @@
         <activity android:name=".NuiteeActivity" />
         <activity android:name=".RepasActivity" />
         <activity android:name=".EtapesActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

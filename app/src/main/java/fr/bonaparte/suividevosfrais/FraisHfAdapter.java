@@ -101,6 +101,7 @@ class FraisHfAdapter extends BaseAdapter {
 
 	public void supprimer(int index){
 		Log.d("TAG", " " +key);
+		Log.d("TAG", " " +index);
 		Global.listFraisMois.get(key).supprFraisHf(index);
 	}
 }
